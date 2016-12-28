@@ -1,0 +1,74 @@
+Terminal Colors
+===============
+
+Apply ANSI terminal colors to strings
+
+== Installation
+
+To install the `terminal_colors` library using rubygems:
+
+[source,sh]
+----
+gem install terminal_colors
+----
+
+Via bundler:
+
+[source,ruby]
+----
+gem 'terminal_colors'
+----
+
+== Usage
+
+Use `TerminalColors::Apply.call` to apply terminal colors to strings. Due to the way ruby specially handles methods named `call`, this can be shortened to `TerminalColors::Apply.()`. This method does not alter the input string. Instead, it returns a new string with the specified styling applied to it.
+
+To apply colors:
+
+[source,ruby]
+----
+# Foreground color
+TerminalColors::Apply.('Some string', fg: 'blue')
+
+# Background color
+TerminalColors::Apply.('Some string', bg: 'magenta')
+----
+
+While not a color, strictly speaking, bold (or bright) foreground text can also be applied:
+
+[source,ruby]
+----
+# Bold (bright) foreground text
+TerminalColors::Apply.('Some string', bold: true)
+----
+
+The arguments can be combined, so that foreground colors, background colors, and boldness can all be applied:
+
+[source,ruby]
+----
+# Foreground color
+TerminalColors::Apply.('Some string', fg: 'blue', bg: 'magenta', bold: true)
+----
+
+The color labels known by this library can be queried:
+
+[source,ruby]
+----
+# Returns a list of color labels
+TerminalColors::Palette.list
+----
+
+For performance reasons, the numeric value of a label can be precomputed and reused:
+
+[source,ruby]
+----
+blue_index = TerminalColors::Palette.fetch 'blue'
+
+TerminalColors::Apply.(string, fg: blue_index)
+----
+
+=== License
+
+Actor is licensed under the link:doc/MIT-License.txt[MIT license]
+
+Copyright © Nathan Ladd
