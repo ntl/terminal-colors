@@ -69,6 +69,6 @@ TerminalColors::Apply.(string, fg: blue_index)
 
 === License
 
-Actor is licensed under the link:doc/MIT-License.txt[MIT license]
+Actor is licensed under the link:MIT-License.txt[MIT license]
 
 Copyright © Nathan Ladd
