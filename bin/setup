@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+gem_list = %w(
+  test_bench
+)
+
+ENV.delete_if { |k,_| k.match /^GEM/ }
+
+if ENV['CLEAN'] == 'on'
+  system 'rm -rf gems'
+end
+
+gem_install = <<~SH
+gem install \
+  --conservative \
+  --no-post-install-message \
+  --norc \
+  --no-document \
+  --install-dir ./gems \
+  #{gem_list * ' '}
+SH
+
+system gem_install
+
+File.open 'gems/gem_init.rb', 'w' do |gem_init_rb|
+  Gem::Specification.each_spec ['gems/specifications'] do |spec|
+    spec.full_require_paths.each do |load_path|
+      gem_init_rb.puts <<~RUBY
+      $LOAD_PATH.unshift #{load_path.inspect}
+      RUBY
+    end
+  end
+end
