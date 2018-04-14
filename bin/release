@@ -3,6 +3,7 @@
 set -eu
 
 export GEM_VERSION=$1
+export GIT_ORIGIN=${GIT_ORIGIN:-origin}
 
 echo
 echo "Running tests"
@@ -14,7 +15,7 @@ echo
 echo "Tagging release"
 echo "= = ="
 git tag -a "v$GEM_VERSION" -m "Version $GEM_VERSION" &&
-  git push github "v$GEM_VERSION"
+  git push ${GIT_ORIGIN} "v$GEM_VERSION"
 
 echo
 echo "Building gem"
