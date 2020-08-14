@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "Bold text (no colors)" do
   string = "Some string"
 

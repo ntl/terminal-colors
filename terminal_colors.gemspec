@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'terminal_colors'
-  s.version = ENV.fetch 'GEM_VERSION'
+  s.version = ENV.fetch('GEM_VERSION', '0')
 
   s.authors = ['Nathan Ladd']
   s.homepage = 'https://github.com/ntl/terminal-colors'

@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "Invalid label" do
   invalid_label = 'not-a-color'
 

@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "Foreground and background colors" do
   [false, true].each do |bold|
     bold_octet = bold ? '1' : '0'

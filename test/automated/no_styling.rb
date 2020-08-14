@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "No styling" do
   string = "Some string"
 

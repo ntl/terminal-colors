@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "Precomputing color label index" do
   label = 'blue'
 

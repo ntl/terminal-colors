@@ -1,3 +1,5 @@
+require_relative '../test_init'
+
 context "Foreground colors" do
   TerminalColors::Palette.list.each_with_index do |color, index|
     context "Color: #{color}" do
